@@ -1,3 +1,3 @@
-import './class/lesson1.js'
-import './class/lesson2.js'
-import './class/lesson3.js'
+import './es6-tutorial/lesson1.js'
+import './es6-tutorial/lesson2.js'
+import './es6-tutorial/lesson3.js'

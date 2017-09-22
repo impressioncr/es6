@@ -351,7 +351,87 @@
 	'use strict';
 
 	console.log('函数扩展');
-	{}
+	{
+	  var test = function test(x) {
+	    var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'world';
+
+	    console.log('默认值', x, y);
+	  };
+
+	  test('hello');
+	}
+
+	{
+	  var test2 = function test2(x) {
+	    var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : x;
+
+	    console.log('作用域', x, y);
+	  };
+
+	  var x = 'test';
+
+	  test2('kill');
+	}
+
+	{
+	  var test3 = function test3() {
+	    for (var _len = arguments.length, arg = Array(_len), _key = 0; _key < _len; _key++) {
+	      arg[_key] = arguments[_key];
+	    }
+
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+
+	    try {
+	      for (var _iterator = arg[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var v = _step.value;
+
+	        console.log('rest', v);
+	      }
+	    } catch (err) {
+	      _didIteratorError = true;
+	      _iteratorError = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion && _iterator.return) {
+	          _iterator.return();
+	        }
+	      } finally {
+	        if (_didIteratorError) {
+	          throw _iteratorError;
+	        }
+	      }
+	    }
+	  };
+
+	  test3(1, 2, 3, 4, 'a');
+	}
+
+	{
+	  var _console;
+
+	  (_console = console).log.apply(_console, [1, 2, 3]);
+	}
+
+	{
+	  var arrow = function arrow(v) {
+	    return v * 2;
+	  };
+	  console.log(arrow(3));
+	}
+	console.log('对象扩展');
+	{
+	  console.log('字符串', Object.is('abc', 'abc'));
+	}
+	// Symbol
+	{
+	  var a1 = Symbol();
+	  var a2 = Symbol();
+	  console.log(a1 === a3);
+	  var a3 = symbol.for('a3');
+	  var a4 = symbol.for('a3');
+	}
 
 /***/ })
 /******/ ]);
